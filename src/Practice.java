@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -119,6 +120,7 @@ public class Practice {
             }
              current = current.next;
         }
+        return biggest;
     }
 
     /**
@@ -135,7 +137,21 @@ public class Practice {
      * @return a frequency map of values in the list
      */
     public static <T> Map<T, Integer> frequencies(ListNode<T> head) {
-        return null;
+        Map<T,Integer> frequencies = new HashMap<>();
+        if( head == null){
+            return frequencies;
+        }
+        ListNode<T> current = head;
+        while(current != null){
+            if(frequencies.containsKey(current.data)){
+                frequencies.put(current.data, frequencies.get(current.data) + 1);
+            }else {
+                frequencies.put(current.data,1);
+            }
+            current = current.next;
+        }
+        return frequencies;
+
     }
 
 
