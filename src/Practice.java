@@ -48,7 +48,23 @@ public class Practice {
             throw new IllegalArgumentException();
         }
 
-        return null;
+        String shortest = null;
+
+        for( String word : words){
+            if( shortest == null){
+                shortest = word;
+            }
+            if (word.length() < shortest.length()){
+                shortest = word;
+            }
+            if(word.length() == shortest.length()){
+                if(word.compareTo(shortest)<0){
+                    shortest = word;
+                }
+            }
+        }
+
+        return shortest;
     }
 
     /**
